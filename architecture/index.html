@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://argoproj.github.io/argo-rollouts/architecture/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -76,7 +76,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Argo Rollouts - Kubernetes Progressive Delivery Controller" class="md-header__button md-logo" aria-label="Argo Rollouts - Kubernetes Progressive Delivery Controller" data-md-component="logo">
       
@@ -154,11 +156,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -269,6 +274,8 @@
       </a>
       
         
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -311,8 +318,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#analysis-and-analysisrun" class="md-nav__link">
-    Analysis and AnalysisRun
+  <a href="#analysistemplate-and-analysisrun" class="md-nav__link">
+    AnalysisTemplate and AnalysisRun
   </a>
   
 </li>
@@ -352,10 +359,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Getting Started
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -364,6 +375,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -374,8 +386,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -386,8 +400,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -398,8 +414,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -410,8 +428,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -422,8 +442,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -434,6 +456,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -469,10 +492,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Rollout
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Rollout
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Rollout" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -481,6 +508,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -490,10 +518,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
       
-      <label class="md-nav__link" for="__nav_7_1">
-        Deployment Strategies
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Deployment Strategies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Deployment Strategies" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_1">
           <span class="md-nav__icon md-icon"></span>
@@ -502,6 +534,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -512,8 +545,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -524,14 +559,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -542,8 +580,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -554,8 +594,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -566,8 +608,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -578,8 +622,24 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/scaledown-aborted-rs/" class="md-nav__link">
+        Scaledown Aborted Rollouts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -590,8 +650,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -602,8 +664,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -614,8 +678,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -626,6 +692,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -646,10 +713,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_8">
-        Traffic Management
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Traffic Management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Traffic Management" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -658,6 +729,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -668,8 +740,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -680,8 +754,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -692,8 +768,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -704,8 +782,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -716,8 +796,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -728,6 +810,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -748,10 +831,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        Analysis
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Analysis" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -760,6 +847,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -770,8 +858,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -782,8 +872,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -794,8 +886,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -806,8 +900,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -818,8 +914,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -830,8 +928,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -842,8 +942,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -854,6 +956,21 @@
     </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysis/cloudwatch/" class="md-nav__link">
+        CloudWatch
+      </a>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -889,10 +1006,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Notifications
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Notifications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Notifications" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -901,6 +1022,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -911,8 +1033,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -922,10 +1046,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
       
-      <label class="md-nav__link" for="__nav_11_2">
-        Services
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Services" data-md-level="2">
         <label class="md-nav__title" for="__nav_11_2">
           <span class="md-nav__icon md-icon"></span>
@@ -934,6 +1062,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -944,8 +1073,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -956,8 +1087,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -968,8 +1101,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -980,8 +1115,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -992,8 +1129,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1004,8 +1143,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1016,8 +1157,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1028,8 +1171,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1040,8 +1185,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1052,8 +1199,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1064,12 +1213,14 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1090,10 +1241,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Kubectl Plugin
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Kubectl Plugin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Kubectl Plugin" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -1102,6 +1257,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1112,8 +1268,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1123,10 +1281,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_2" type="checkbox" id="__nav_12_2" >
       
-      <label class="md-nav__link" for="__nav_12_2">
-        Commands
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12_2">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Commands" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_2">
           <span class="md-nav__icon md-icon"></span>
@@ -1135,6 +1297,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1145,8 +1308,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1157,8 +1322,24 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/kubectl-argo-rollouts/kubectl-argo-rollouts_completion/" class="md-nav__link">
+        Rollouts Completion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -1169,8 +1350,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1181,8 +1364,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1193,8 +1378,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1205,8 +1392,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1217,8 +1406,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1229,8 +1420,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1241,8 +1434,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1253,8 +1448,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1265,8 +1462,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1277,8 +1476,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1289,8 +1490,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1301,8 +1504,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1313,8 +1518,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1325,8 +1532,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1337,8 +1546,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1349,8 +1560,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1361,8 +1574,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1373,8 +1588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1385,8 +1602,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1397,8 +1616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1409,8 +1630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1421,8 +1644,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1433,8 +1658,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1445,8 +1672,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1457,8 +1686,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1469,8 +1700,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1481,8 +1714,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1493,8 +1728,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1505,8 +1742,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1517,8 +1756,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1529,12 +1770,14 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1630,10 +1873,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
       
-      <label class="md-nav__link" for="__nav_18">
-        Contributing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_18">
+          Contributing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Contributing" data-md-level="1">
         <label class="md-nav__title" for="__nav_18">
           <span class="md-nav__icon md-icon"></span>
@@ -1642,6 +1889,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1652,8 +1900,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1664,8 +1914,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1676,6 +1928,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1740,6 +1993,8 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -1782,8 +2037,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#analysis-and-analysisrun" class="md-nav__link">
-    Analysis and AnalysisRun
+  <a href="#analysistemplate-and-analysisrun" class="md-nav__link">
+    AnalysisTemplate and AnalysisRun
   </a>
   
 </li>
@@ -1831,7 +2086,7 @@ that you can install Argo Rollouts in a cluster that is also deploying applicati
 <h2 id="rollout-resource">Rollout resource<a class="headerlink" href="#rollout-resource" title="Permanent link">&para;</a></h2>
 <p>The Rollout resource is a custom Kubernetes resource introduced and managed by Argo Rollouts. It is mostly compatible with the native Kubernetes Deployment resource but with extra
 fields that control the stages, thresholds and methods of advanced deployment methods such as canaries and blue/green deployments.</p>
-<p>Note that the Argo Rollouts controller will only responds to changes that happen in Rollout sources. It will do nothing for normal deployment resources. This means that you need to <a href="../migrating/">migrate your Deployments to Rollouts</a> if you want to manage them with Argo Rollouts.</p>
+<p>Note that the Argo Rollouts controller will only respond to those changes that happen in Rollout sources. It will do nothing for normal deployment resources. This means that you need to <a href="../migrating/">migrate your Deployments to Rollouts</a> if you want to manage them with Argo Rollouts.</p>
 <p>You can see all possible options of a Rollout in the <a href="../features/specification/">full specification page</a>.</p>
 <h2 id="replica-sets-for-old-and-new-version">Replica sets for old and new version<a class="headerlink" href="#replica-sets-for-old-and-new-version" title="Permanent link">&para;</a></h2>
 <p>These are instances of the <a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">standard Kubernetes ReplicaSet resources</a>. Argo Rollouts puts some extra metadata on them in order to keep track of the different versions that are part of an application.</p>
@@ -1839,11 +2094,12 @@ fields that control the stages, thresholds and methods of advanced deployment me
 <h2 id="ingressservice">Ingress/Service<a class="headerlink" href="#ingressservice" title="Permanent link">&para;</a></h2>
 <p>This is the mechanism that traffic from live users enters your cluster and is redirected to the appropriate version. Argo Rollouts use the <a href="https://kubernetes.io/docs/concepts/services-networking/service/">standard Kubernetes service resource</a>, but with some extra metadata needed for management.</p>
 <p>Argo Rollouts is very flexible on networking options. First of all you can have different services during a Rollout, that go only to the new version, only to the old version or both.
-Specifically for Canary deployments, Argo Rollouts supports several <a href="../features/traffic-management/">service mesh and ingress solutions</a> for splitting traffic with specific percentages instead of simple balancing based on pod counts.</p>
-<h2 id="analysis-and-analysisrun">Analysis and AnalysisRun<a class="headerlink" href="#analysis-and-analysisrun" title="Permanent link">&para;</a></h2>
-<p>Analysis is a custom Kubernetes resource that connects a Rollout to your metrics provider and defines specific thresholds for certain metrics that will decide if a rollout is successful or not. For each Analysis you can define one or more metric queries along with their expected results. A Rollout will progress on its own if metric queries are good, rollback automatically if metrics show failure and pause the rollout if metrics cannot provide a success/failure answer.</p>
-<p>Analysis is just a template on what metrics to query. The actual result that is attached to a Rollout is the <code>AnalysisRun</code> custom resource. You can define an Analysis on a specific Rollout or globally on the cluster to be shared by multiple rollouts. The AnalysisRun resources is scoped on a specific rollout.</p>
-<p>Note that using Analysis and metrics in a Rollout is completely optional. You can manually pause and promote a rollout or use other external methods (e.g. smoke tests) via the API or the CLI. You don't need a metric solution just to use Argo Rollouts. You can also mix both automated (i.e. analysis based) and manual steps in a Rollout.</p>
+Specifically for Canary deployments, Argo Rollouts supports several <a href="../features/traffic-management/">service mesh and ingress solutions</a> for splitting traffic with specific percentages instead of simple balancing based on pod counts and it is possible to use multiple routing providers simultaneously.</p>
+<h2 id="analysistemplate-and-analysisrun">AnalysisTemplate and AnalysisRun<a class="headerlink" href="#analysistemplate-and-analysisrun" title="Permanent link">&para;</a></h2>
+<p>Analysis is the capability to connect a Rollout to your metrics provider and define specific thresholds for certain metrics that will decide if an update is successful or not. For each analysis you can define one or more metric queries along with their expected results. A Rollout will progress on its own if metric queries are good, rollback automatically if metrics show failure and pause the rollout if metrics cannot provide a success/failure answer.</p>
+<p>For performing an analysis, Argo Rollouts includes two custom Kubernetes resources: <code>AnalysisTemplate</code> and <code>AnalysisRun</code>.</p>
+<p><code>AnalysisTemplate</code> contains instructions on what metrics to query. The actual result that is attached to a Rollout is the <code>AnalysisRun</code> custom resource. You can define an <code>AnalysisTemplate</code> on a specific Rollout or globally on the cluster to be shared by multiple rollouts as a <code>ClusterAnalysisTemplate</code>. The <code>AnalysisRun</code> resource is scoped on a specific rollout.</p>
+<p>Note that using an analysis and metrics in a Rollout is completely optional. You can manually pause and promote a rollout or use other external methods (e.g. smoke tests) via the API or the CLI. You don't need a metric solution just to use Argo Rollouts. You can also mix both automated (i.e. analysis based) and manual steps in a Rollout.</p>
 <p>Apart from metrics, you can also decide the success of a rollout by running a <a href="../analysis/job/">Kubernetes job</a> or running <a href="../analysis/web/">a webhook</a>.</p>
 <h2 id="metric-providers">Metric providers<a class="headerlink" href="#metric-providers" title="Permanent link">&para;</a></h2>
 <p>Argo Rollouts includes <a href="../features/analysis/">native integration for several popular metrics providers</a> that you can use in the Analysis resources to automatically promote or rollback  a rollout. See the documentation of each provider for specific setup options.</p>
@@ -1904,10 +2160,12 @@ Specifically for Canary deployments, Argo Rollouts supports several <a href="../
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1919,10 +2177,10 @@ Specifically for Canary deployments, Argo Rollouts supports several <a href="../
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>
