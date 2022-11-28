@@ -10,6 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 
 	"github.com/argoproj/argo-rollouts/pkg/apis/rollouts/v1alpha1"
+	pluralize "github.com/gertd/go-pluralize"
 )
 
 const (
@@ -324,4 +325,8 @@ func GetMetricCleanupDelaySeconds() time.Duration {
 // SetMetricCleanupDelaySeconds sets the metric cleanup delay in seconds
 func SetMetricCleanupDelaySeconds(seconds int32) {
 	defaultMetricCleanupDelay = seconds
+}
+
+func ConvertKindToResource(kind string) string {
+	return pluralize.NewClient().Plural(strings.ToLower(kind))
 }

@@ -1021,6 +1021,9 @@
       "properties": {
         "name": {
           "type": "string"
+        },
+        "canaryTemplate": {
+          "type": "string"
         }
       }
     },

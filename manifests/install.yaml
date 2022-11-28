@@ -11837,9 +11837,12 @@ spec:
                           managedRoutes:
                             items:
                               properties:
+                                canaryTemplate:
+                                  type: string
                                 name:
                                   type: string
                               required:
+                              - canaryTemplate
                               - name
                               type: object
                             type: array
