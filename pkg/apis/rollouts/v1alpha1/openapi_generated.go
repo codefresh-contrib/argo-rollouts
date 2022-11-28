@@ -2621,8 +2621,15 @@ func schema_pkg_apis_rollouts_v1alpha1_MangedRoutes(ref common.ReferenceCallback
 							Format:  "",
 						},
 					},
+					"canaryTemplate": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
 				},
-				Required: []string{"name"},
+				Required: []string{"name", "canaryTemplate"},
 			},
 		},
 	}

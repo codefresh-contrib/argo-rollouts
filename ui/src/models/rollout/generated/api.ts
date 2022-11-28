@@ -785,6 +785,12 @@ export interface GithubComArgoprojArgoRolloutsPkgApisRolloutsV1alpha1MangedRoute
      * @memberof GithubComArgoprojArgoRolloutsPkgApisRolloutsV1alpha1MangedRoutes
      */
     name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GithubComArgoprojArgoRolloutsPkgApisRolloutsV1alpha1MangedRoutes
+     */
+    canaryTemplate?: string;
 }
 /**
  * MeasurementRetention defines the settings for retaining the number of measurements during the analysis.

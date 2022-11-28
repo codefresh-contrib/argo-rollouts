@@ -1,6 +1,8 @@
 package rollout
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"reflect"
 	"strconv"
@@ -21,6 +23,10 @@ import (
 	"github.com/argoproj/argo-rollouts/utils/record"
 	replicasetutil "github.com/argoproj/argo-rollouts/utils/replicaset"
 	rolloututil "github.com/argoproj/argo-rollouts/utils/rollout"
+	"github.com/ghodss/yaml"
+	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
 // NewTrafficRoutingReconciler identifies return the TrafficRouting Plugin that the rollout wants to modify
@@ -108,7 +114,49 @@ func (c *Controller) NewTrafficRoutingReconciler(roCtx *rolloutContext) ([]traff
 		return trafficReconcilers, nil
 	}
 
+	managedRoutes := rollout.Spec.Strategy.Canary.TrafficRouting.ManagedRoutes
+	for _, routeConfig := range managedRoutes {
+		yamlCanaryTemplate := routeConfig.CanaryTemplate
+		if yamlCanaryTemplate != "" {
+			canaryTemplate := &unstructured.Unstructured{}
+			err := yaml.Unmarshal([]byte(yamlCanaryTemplate), &canaryTemplate.Object)
+			if err != nil {
+				return trafficReconcilers, err
+			}
+			apiVersion, isFound, err := unstructured.NestedString(canaryTemplate.Object, "apiVersion")
+			if err != nil {
+				return trafficReconcilers, err
+			}
+			if !isFound {
+				return trafficReconcilers, errors.New("\"apiVersion\" field in canary route template was not found")
+			}
+			group, version := getGroupAndVersionFromApiVersion(apiVersion)
+			kind, isFound, err := unstructured.NestedString(canaryTemplate.Object, "kind")
+			if err != nil {
+				return trafficReconcilers, err
+			}
+			if !isFound {
+				return trafficReconcilers, errors.New("\"kind\" field in canary route template was not found")
+			}
+			_, err = c.dynamicclientset.Resource(schema.GroupVersionResource{
+				Group:    group,
+				Version:  version,
+				Resource: kind,
+			}).Namespace(rollout.Namespace).Create(context.TODO(), canaryTemplate, v1.CreateOptions{})
+			if err != nil {
+				return trafficReconcilers, err
+			}
+		}
+	}
+
 	return nil, nil
+}
+
+func getGroupAndVersionFromApiVersion(apiVersion string) (group string, version string) {
+	parts := strings.Split(apiVersion, "/")
+	group = parts[0]
+	version = parts[len(parts)-1]
+	return
 }
 
 func (c *rolloutContext) reconcileTrafficRouting() error {

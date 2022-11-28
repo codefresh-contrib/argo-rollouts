@@ -378,9 +378,8 @@ type GatewayAPITrafficRouting struct {
 }
 
 type MangedRoutes struct {
-	Name string `json:"name" protobuf:"bytes,1,opt,name=name"`
-	//Possibly name for future use
-	//canaryRoute bool
+	Name           string `json:"name" protobuf:"bytes,1,opt,name=name"`
+	CanaryTemplate string `json:"canaryTemplate" protobuf:"bytes,2,opt,name=canaryTemplate"`
 }
 
 // TraefikTrafficRouting defines the configuration required to use Traefik as traffic router
