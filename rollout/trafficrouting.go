@@ -20,6 +20,7 @@ import (
 	"github.com/argoproj/argo-rollouts/rollout/trafficrouting/traefik"
 	"github.com/argoproj/argo-rollouts/utils/conditions"
 	"github.com/argoproj/argo-rollouts/utils/defaults"
+	"github.com/argoproj/argo-rollouts/utils/diff"
 	"github.com/argoproj/argo-rollouts/utils/record"
 	replicasetutil "github.com/argoproj/argo-rollouts/utils/replicaset"
 	rolloututil "github.com/argoproj/argo-rollouts/utils/rollout"
@@ -27,6 +28,7 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+	patchtypes "k8s.io/apimachinery/pkg/types"
 )
 
 // NewTrafficRoutingReconciler identifies return the TrafficRouting Plugin that the rollout wants to modify
@@ -131,6 +133,13 @@ func (c *Controller) NewTrafficRoutingReconciler(roCtx *rolloutContext) ([]traff
 				return trafficReconcilers, errors.New("\"apiVersion\" field in canary route template was not found")
 			}
 			group, version := getGroupAndVersionFromApiVersion(apiVersion)
+			canaryTemplateName, isFound, err := unstructured.NestedString(canaryTemplate.Object, "metadata", "name")
+			if err != nil {
+				return trafficReconcilers, err
+			}
+			if !isFound {
+				return trafficReconcilers, errors.New("\"metadata.name\" field in canary route template was not found")
+			}
 			kind, isFound, err := unstructured.NestedString(canaryTemplate.Object, "kind")
 			if err != nil {
 				return trafficReconcilers, err
@@ -138,13 +147,34 @@ func (c *Controller) NewTrafficRoutingReconciler(roCtx *rolloutContext) ([]traff
 			if !isFound {
 				return trafficReconcilers, errors.New("\"kind\" field in canary route template was not found")
 			}
-			_, err = c.dynamicclientset.Resource(schema.GroupVersionResource{
+			canaryRouteClient := c.dynamicclientset.Resource(schema.GroupVersionResource{
 				Group:    group,
 				Version:  version,
-				Resource: kind,
-			}).Namespace(rollout.Namespace).Create(context.TODO(), canaryTemplate, v1.CreateOptions{})
+				Resource: defaults.ConvertKindToResource(kind),
+			}).Namespace(rollout.Namespace)
+			currentCanaryTemplate, err := canaryRouteClient.Get(context.TODO(), canaryTemplateName, v1.GetOptions{})
 			if err != nil {
 				return trafficReconcilers, err
+			}
+			if currentCanaryTemplate == nil {
+				_, err = canaryRouteClient.Create(context.TODO(), canaryTemplate, v1.CreateOptions{})
+				if err != nil {
+					return trafficReconcilers, err
+				}
+			} else {
+				resultCanaryTemplate := unstructured.Unstructured{}
+				currentCanaryTemplate.DeepCopyInto(&resultCanaryTemplate)
+				canaryTemplate.DeepCopyInto(&resultCanaryTemplate)
+				patch, isSame, err := diff.CreateTwoWayMergePatch(currentCanaryTemplate, resultCanaryTemplate, struct{}{})
+				if err != nil {
+					return trafficReconcilers, err
+				}
+				if !isSame {
+					_, err = canaryRouteClient.Patch(context.TODO(), canaryTemplateName, patchtypes.MergePatchType, patch, v1.PatchOptions{})
+					if err != nil {
+						return trafficReconcilers, err
+					}
+				}
 			}
 		}
 	}
